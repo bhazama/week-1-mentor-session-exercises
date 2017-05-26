@@ -5,6 +5,12 @@
  * @return {string} reversed
  * ie: "cat" => "tac"
  */
+var daString = "Hello";
+ function firstReverse(str){
+  str.split(" ");
+  console.log(str);
+ }
+ console.log(firstReverse("Hello"));
 
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
