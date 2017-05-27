@@ -5,13 +5,15 @@
  * @return {string} reversed
  * ie: "cat" => "tac"
  */
-var daString = "Hello";
- function firstReverse(str){
-  str.split(" ");
-  console.log(str);
- }
- console.log(firstReverse("Hello"));
-
+function firstReverse(str){
+  var newString = [];
+  for(var i =str.length-1;i>=0; i--){
+   newString.push(str[i]);
+   var newWord = newString.join("");
+  }
+  return newWord;
+}
+console.log(firstReverse("cat"));
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -19,6 +21,16 @@ var daString = "Hello";
  * @return {string} in alphabetical order
  * ie: "cake" => "acek"
  */
+ var hi = "zxrtcba";
+ function alphaOrder(str){
+  var arr = str.split("");
+  var alpha = arr.sort();
+  var join = alpha.join("");
+  return join;
+ }
+console.log(alphaOrder(hi));
+
+
 
  /** Function: vowelCount
  * The function will take the str parameter being passed in and
@@ -27,7 +39,16 @@ var daString = "Hello";
  * @return {number} count of vowels
  * ie: "oreo" => 3
  */
-
+ function vowelCount(str){
+  var count = 0;
+  for(var i = 0; i<str.length; i++){
+    if(str[i].includes("a", "e", "i", "o", "u")){
+      count+=1;
+    }
+  }
+return count;
+}
+console.log(vowelCount("hello"));
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
  * return the number of hours and minutes. Seperate the number of hours
@@ -36,7 +57,12 @@ var daString = "Hello";
  * @return {string} as hours:minutes
  * ie: 68 => 1:8
  */
-
+ function timeConvert(min){
+  var hours = Math.floor(min/60);
+  var minutes = min%60;
+  console.log(hours + ":" + minutes);
+ }
+timeConvert(70);
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -45,7 +71,15 @@ var daString = "Hello";
  * @return {string} repeated num times
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
-
+ function repeatString(str,num){
+  var empty = [];
+  if(num < 0){
+    return empty;
+  }else{empty = str.repeat(num);
+  }
+console.log(empty);
+ }
+repeatString("hello", 3);
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
@@ -62,7 +96,7 @@ var daString = "Hello";
  */
 
 module.exports = {
-    firstReverse: null,
+    firstReverse: firstReverse("sax"),
     alphaOrder: null,
     vowelCount: null,
     timeConvert: null,
