@@ -7,14 +7,17 @@
  */
 function firstReverse(str){
   var emptyArr = [];
-  var strToArr= str.split("");
   var reverseWord;
-  //console.log(strToArr);
-  for(var i = strToArr.length -1; i>=0; i--){
-    emptyArr.push(strToArr[i]);
+  
+  if (typeof str !== "string"){
+    return null;
+  }else{
+  for(var i = str.length -1; i>=0; i--){
+    emptyArr.push(str[i]);
     reverseWord = emptyArr.join("");
   }
   return reverseWord;
+ }
 }
 console.log(firstReverse("hello"));
  /** Function: alphaOrder
@@ -25,9 +28,13 @@ console.log(firstReverse("hello"));
  * ie: "cake" => "acek"
  */
 function alphaOrder(str){
+  if(typeof str !== "string"){
+    return null;
+  }else{
   var strToArr= str.split("");
   var newArr= strToArr.sort().join("");
   return newArr;
+ }
 }
 console.log(alphaOrder("zyxwvutsrqponmlkjihgfedcba"));
 
@@ -40,14 +47,20 @@ console.log(alphaOrder("zyxwvutsrqponmlkjihgfedcba"));
  * ie: "oreo" => 3
  */
  function vowelCount(str){
-  var strToArr=str.split("");
+ 
+  if(typeof str !== "string"){
+    return null;
+  }else {
+  var strToArr = str.split("");
   var count = 0;
+  
   for(var i = 0; i < strToArr.length; i++){
     if(strToArr[i].match(/[aeiou]/gi)){ 
       count+=1;
       }
     }
   return count;
+   }
   }
   console.log(vowelCount("hEEllo"));
  /** Function: timeConvert
@@ -58,12 +71,18 @@ console.log(alphaOrder("zyxwvutsrqponmlkjihgfedcba"));
  * @return {string} as hours:minutes
  * ie: 68 => 1:8
  */
- function timeConvert(min){
-  var hours = Math.floor(min/60);
-  var minutes = min%60;
-  console.log(hours + ":" + minutes);
+ function timeConvert(mins){
+  if(typeof mins !== "number"){
+    return null;
+  }else{
+  var hours = Math.floor(mins / 60);
+  var minutes = mins % 60;
+  return hours + ":" + minutes;
+  } 
  }
-timeConvert(70);
+console.log(timeConvert(68));
+
+
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -73,14 +92,19 @@ timeConvert(70);
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
  function repeatString(str,num){
-  var empty = [];
+  if(typeof str !== "string" || typeof num !== "number"){
+    return null;
+  }else{
+  var empty = " ";
+  
   if(num < 0){
     return empty;
   }else{empty = str.repeat(num);
   }
-console.log(empty);
+ return empty;
  }
-repeatString("hello", 3);
+}
+console.log(repeatString("NOBU", 4));
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
@@ -97,9 +121,9 @@ repeatString("hello", 3);
  */
 
 module.exports = {
-    firstReverse: firstReverse("sax"),
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
-}
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatString
+};
