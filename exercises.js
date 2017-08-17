@@ -40,15 +40,16 @@ console.log(alphaOrder("zyxwvutsrqponmlkjihgfedcba"));
  * ie: "oreo" => 3
  */
  function vowelCount(str){
+  var strToArr=str.split("");
   var count = 0;
-  for(var i = 0; i<str.length; i++){
-    if(str[i].includes("a", "e", "i", "o", "u")){
+  for(var i = 0; i < strToArr.length; i++){
+    if(strToArr[i].match(/[aeiou]/gi)){ 
       count+=1;
+      }
     }
+  return count;
   }
-return count;
-}
-console.log(vowelCount("hello"));
+  console.log(vowelCount("hEEllo"));
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
  * return the number of hours and minutes. Seperate the number of hours
