@@ -6,14 +6,17 @@
  * ie: "cat" => "tac"
  */
 function firstReverse(str){
-  var newString = [];
-  for(var i =str.length-1;i>=0; i--){
-   newString.push(str[i]);
-   var newWord = newString.join("");
+  var emptyArr = [];
+  var strToArr= str.split("");
+  var reverseWord;
+  //console.log(strToArr);
+  for(var i = strToArr.length -1; i>=0; i--){
+    emptyArr.push(strToArr[i]);
+    reverseWord = emptyArr.join("");
   }
-  return newWord;
+  return reverseWord;
 }
-console.log(firstReverse("cat"));
+console.log(firstReverse("hello"));
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -21,15 +24,12 @@ console.log(firstReverse("cat"));
  * @return {string} in alphabetical order
  * ie: "cake" => "acek"
  */
- var hi = "zxrtcba";
- function alphaOrder(str){
-  var arr = str.split("");
-  var alpha = arr.sort();
-  var join = alpha.join("");
-  return join;
- }
-console.log(alphaOrder(hi));
-
+function alphaOrder(str){
+  var strToArr= str.split("");
+  var newArr= strToArr.sort().join("");
+  return newArr;
+}
+console.log(alphaOrder("zyxwvutsrqponmlkjihgfedcba"));
 
 
  /** Function: vowelCount
